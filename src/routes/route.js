@@ -3,6 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Cadastro from '../pages/Cadastro';
@@ -16,6 +19,7 @@ function TabBar() {
     return (
         <Tab.Navigator
             screenOptions={{
+                tabBarShowLabel: false,
                 tabBarInactiveTintColor: '#fff',
                 tabBarActiveTintColor: '#00FFFF',
                 tabBarStyle: {
@@ -28,16 +32,25 @@ function TabBar() {
         >
             <Tab.Screen name="TelaHome" component={Home}
                 options={{
+                    tabBarIcon: ({ size, color }) => (
+                        <Ionicons name="home" size={size} color={color} />
+                    ),
                     headerShown: false
                 }}
             />
             <Tab.Screen name="AddAluno" component={AddAluno}
                 options={{
+                    tabBarIcon: ({ size, color }) => (
+                        <FontAwesome5 name="user-plus" size={size} color={color} />
+                    ),
                     headerShown: false
                 }}
             />
             <Tab.Screen name="Configuração" component={Configurações}
                 options={{
+                    tabBarIcon: ({ size, color }) => (
+                        <Ionicons name="settings" size={size} color={color} />
+                    ),
                     headerShown: false
                 }}
             />
